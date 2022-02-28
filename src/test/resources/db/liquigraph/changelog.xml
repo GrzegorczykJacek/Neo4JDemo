@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<changelog xmlns="https://www.liquigraph.org/schema/1.0/liquigraph.xsd">
+    <changeset id="java-department" author="you">
+        <query>
+            CREATE (n:Department {name: 'Java'})
+            RETURN n
+        </query>
+    </changeset>
+    <changeset id="worker-Jan" author="you">
+        <query>
+            CREATE (n:Worker {name: 'Jan'})
+            RETURN n
+        </query>
+    </changeset>
+    <changeset id="hire-Jacek" author="you">
+        <query>
+            MATCH(u:User{name:'Jan'})
+            CREATE(c:Company{name:'Britenet', address:'Morwowa 1'})-[r:HIRES]->(u)
+        </query>
+    </changeset>
+    <changeset id="add-cars" author="you">
+        <query>
+            CREATE(a:Car {brand:"Volvo", `properties.year`: 2022, `properties.vin`: 'VXXZ12345679'}),
+            (b:Car {brand:"Subaru", `properties.year`: 2018, `properties.vin`: 'CVN987256456'}),
+            (c:Car {brand:"Porsche", `properties.year`: 1995, `properties.vin`: 'UZD987456231'}),
+            (u:Worker {name:"Jacek", `properties.age`: 67, `properties.hasDrivingLicense`: true}),
+            (x:Worker {name:"Marian", `properties.age`: 18, `properties.hasDrivingLicense`: false}),
+            (z:Worker {name:"Henryk", `properties.age`: 45, `properties.hasDrivingLicense`: true}),
+            (u)-[:OWNS]->(a),
+            (x)-[:OWNS]->(b),
+            (z)-[:OWNS]->(c)
+        </query>
+    </changeset>
+</changelog>

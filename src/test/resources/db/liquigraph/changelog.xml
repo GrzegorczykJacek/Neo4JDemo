@@ -29,7 +29,8 @@
             (z:Worker {name:"Henryk", `properties.age`: 45, `properties.hasDrivingLicense`: true}),
             (u)-[:OWNS]->(a),
             (x)-[:OWNS]->(b),
-            (z)-[:OWNS]->(c)
+            (z)-[:OWNS]->(c),
+            (u)-[:FRIENDS]->(x)
         </query>
     </changeset>
 </changelog>

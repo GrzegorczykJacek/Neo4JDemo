@@ -4,9 +4,11 @@ import com.jacek.grzegorczyk.neo4jdemo.data.entities.CompanyEntity;
 import com.jacek.grzegorczyk.neo4jdemo.services.CompanyEntityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("company")
+@RestController
+@RequestMapping("/company")
 @RequiredArgsConstructor
 public class CompanyController {
 

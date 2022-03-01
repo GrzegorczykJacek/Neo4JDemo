@@ -8,7 +8,7 @@ public interface CompanyEntityService {
 
     CompanyEntity get(Long id);
 
-    void delete(CompanyEntity companyEntity);
+    void delete(String companyName);
 
     CompanyEntity hire(String companyName, WorkerEntity workerEntity);
 

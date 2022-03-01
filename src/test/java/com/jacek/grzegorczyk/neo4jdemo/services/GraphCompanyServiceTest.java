@@ -1,8 +1,8 @@
-package com.jacek.grzegorczyk.neo4jdemo;
+package com.jacek.grzegorczyk.neo4jdemo.services;
 
+import com.jacek.grzegorczyk.neo4jdemo.AbstractIntegrationTest;
 import com.jacek.grzegorczyk.neo4jdemo.data.entities.CompanyEntity;
 import com.jacek.grzegorczyk.neo4jdemo.data.repositories.CompanyRepository;
-import com.jacek.grzegorczyk.neo4jdemo.services.CompanyEntityServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -22,7 +22,7 @@ class GraphCompanyServiceTest extends AbstractIntegrationTest {
     CompanyRepository companyRepository;
 
     @Test
-    void shouldSaveNewNodeToNeo4J() {
+    void shouldSaveNewCompanyToNeo4J() {
         // given
         CompanyEntity companyEntity = new CompanyEntity(FAKER.funnyName().name());
 

@@ -6,13 +6,15 @@ import org.springframework.data.neo4j.repository.query.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CarRepository extends Neo4jRepository<CarEntity, Long> {
 
-    CarEntity findCarEntitiesByBrand(String brand);
+    Integer countByBrand(String brand);
 
-    @Query("MATCH p = (w:Worker)-[:OWNS]-(c:Car) WHERE c.brand = $brand AND w.name STARTS WITH $owner" +
-            "RETURN w, collect(nodes(p)), collect(relationships(p))")
-    CarEntity findCarEntitiesByBrandAndOwnerThatStartsWith(@Param("brand") String brand, @Param("owner") String owner);
+    @Query("MATCH p = (w:Worker)-[:OWNS]->(c:Car) WHERE c.brand = $brand AND w.name STARTS WITH $owner " +
+            "RETURN c")
+    List<CarEntity> findCarEntitiesByBrandAndOwnerThatStartsWith(@Param("brand") String brand, @Param("owner") String owner);
 
 }

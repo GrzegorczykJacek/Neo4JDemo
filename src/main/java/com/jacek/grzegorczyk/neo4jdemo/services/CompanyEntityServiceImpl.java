@@ -39,7 +39,8 @@ public class CompanyEntityServiceImpl implements CompanyEntityService {
     }
 
     @Override
-    public void delete(CompanyEntity companyEntity) {
+    public void delete(String companyName) {
+        CompanyEntity companyEntity = companyRepository.findByName(companyName);
         companyRepository.delete(companyEntity);
     }
 
